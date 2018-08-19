@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 class Solution {
- public:
+public:
   void printvec(vector<int> &v) {
     for (auto n : v) {
       cout << n << " ";
@@ -39,16 +39,21 @@ class Solution {
 #ifdef DEBUG
           cout << "count: " << count << endl;
 #endif
-        }
-        if (i == retstr.size() - 1) {
-          new_retstr.emplace_back(count);
-          new_retstr.emplace_back(curr_num);
-          break;
+          if (i == retstr.size() - 1) {
+            new_retstr.emplace_back(count);
+            new_retstr.emplace_back(curr_num);
+            break;
+          }
         } else {
           new_retstr.emplace_back(count);
           new_retstr.emplace_back(curr_num);
           curr_num = retstr[i];
           count = 1;
+          if (i == retstr.size() - 1) {
+            new_retstr.emplace_back(count);
+            new_retstr.emplace_back(curr_num);
+            break;
+          }
         }
       }
 #ifdef DEBUG
@@ -72,4 +77,5 @@ int main() {
   cout << s.countAndSay(2) << endl;
   cout << s.countAndSay(3) << endl;
   cout << s.countAndSay(4) << endl;
+  cout << s.countAndSay(5) << endl;
 }
